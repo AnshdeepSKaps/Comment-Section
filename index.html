@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+  
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="phone.css">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400&display=swap" rel="stylesheet">
+  <title>Comments Section</title>
+  <script src="script.js" defer></script>
+  <script src="phoneScript.js" defer></script>
+
+</head>
+
+<body>
+
+  <div class="alert-screen inactive">
+    <div class="alert-box">
+      <div class="alert-header">Delete Comment</div>
+      <div class="alert-text">Are you sure you want to delete this comment? It cannot be undone.</div>
+      <div class="alert-buttons">
+        <div class="alert-cancel-btn">Cancel</div>
+        <div class="alert-delete-btn">Delete</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+  </div>
+
+  <template comment-box-template>
+    <div class="comment-box">
+      <div class="comment">
+        <div class="counter">
+          <img src="images/icon-plus.svg" alt="" class="plus">
+          <div class="number"></div>
+          <img src="images/icon-minus.svg" alt="" class="minus">
+        </div>
+        <div class="content">
+          <div class="header">
+            <img src="" alt="" class="person">
+            <div class="name"></div>
+            <div class="time"></div>
+            <div class="reply">
+              <img src="images/icon-reply.svg" class="reply-icon" alt="">
+              <div class="reply-text">Reply</div>
+            </div>
+          </div>
+          <div class="text" data-before=""></div>
+        </div>
+      </div>
+      <div class="reply-box">
+        <div class="line"></div>
+        <div class="reply-section"></div>
+      </div>
+    </div>
+  </template>
+
+  <template comment-template>
+    <div class="comment">
+      <div class="counter">
+        <img src="images/icon-plus.svg" alt="" class="plus">
+        <div class="number"></div>
+        <img src="images/icon-minus.svg" alt="" class="minus">
+      </div>
+      <div class="content">
+        <div class="header">
+          <img src="" alt="" class="person">
+          <div class="name"></div>
+          <div class="time"></div>
+          <div class="reply">
+            <img src="images/icon-reply.svg" class="reply-icon" alt="">
+            <div class="reply-text">Reply</div>
+          </div>
+        </div>
+        <div class="text" data-before=""></div>
+      </div>
+    </div>
+    <div class="reply-box">
+      <div class="line"></div>
+      <div class="reply-section"></div>
+    </div>
+  </div>
+  </template>
+
+  <template add-comment-template>
+    <div class="add-comment comment">
+      <img src="images/avatars/image-juliusomo.png" alt="">
+      <textarea class="input-box" placeholder="Add a comment..." name="" id=""></textarea>
+      <div class="send-btn">Send</div>
+    </div>
+  </template>
+
+  <template phantom-reply-template>
+    <div class="phantom-reply comment">
+      <img src="images/avatars/image-juliusomo.png" alt="">
+      <textarea class="input-box" placeholder="Add a comment..." name="" id=""></textarea>
+      <div class="phantom-reply-btn-div">
+        <div class="phantom-reply-btn">Reply</div>
+        <div class="phantom-cancel-btn">Cancel</div>
+      </div>
+    </div>
+  </template>
+
+</body>
+
+</html>

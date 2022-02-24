@@ -1,0 +1,386 @@
+* {
+  box-sizing: border-box;
+  margin: 0 0;
+  padding: 0 0;
+}
+
+body {
+  background-color: hsl(228, 33%, 97%);
+  font-family: "Rubik", sans-serif;
+  /* height:; */
+  padding-top: 3vh;
+  /* border: 5px solid red; */
+}
+
+.comment-box {
+  margin-top: 3vh;
+  /* border: 2px solid red; */
+}
+
+.alert-screen {
+  margin: 0 0;
+  position: absolute;
+  top: 0;
+  height: 150%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 2;
+  animation: existence 0.5s;
+}
+
+.container {
+  background-color: hsl(228, 33%, 97%);
+  border-radius: 10px;
+  /* border: 2px solid red; */
+  height: 100vh;
+  width: 45vw;
+  margin: 0 auto;
+  margin-top: 0vh;
+}
+
+.comment {
+  background-color: white;
+  border-radius: 10px;
+  height: fit-content;
+  /* width: 50vw; */
+  display: grid;
+  grid-template-columns: 0.7fr 10fr;
+  padding: 2.5vh 1.5vw;
+  gap: 1.5rem;
+  position: relative;
+  margin-bottom: 1.3vh;
+  animation: existence 0.5s backwards;
+}
+
+.header {
+  /* border: 2px solid red; */
+  display: grid;
+  grid-template-columns: 50px 100px 100px 1fr;
+  align-items: center;
+  position: relative;
+}
+
+.footer{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.counter {
+  background-color: hsl(228, 33%, 97%);
+  border-radius: 10px;
+  position: relative;
+  height: 13vh;
+}
+
+.number {
+  color: hsl(238, 40%, 52%);
+  position: absolute;
+  top: 5.5vh;
+  font-weight: 900;
+  width: 100%;
+  text-align: center;
+}
+
+.plus {
+  position: absolute;
+  top: 2vh;
+  left: 36%;
+  cursor: pointer;
+}
+
+.plus:hover {
+  filter: opacity(1) drop-shadow(0 0 0 blue) saturate(1000%);
+}
+
+.minus {
+  position: absolute;
+  bottom: 2vh;
+  right: 36%;
+  cursor: pointer;
+}
+
+.minus:hover {
+  filter: opacity(1) drop-shadow(0 0 0 blue) saturate(1000%);
+}
+
+.person {
+  height: 5vh;
+}
+
+.name {
+  color: hsl(212, 24%, 26%);
+  font-weight: 700;
+  text-align: left;
+  width: fit-content;
+}
+
+.time {
+  color: hsl(211, 10%, 45%);
+  font-weight: 600;
+  text-align: right;
+}
+
+.reply {
+  justify-self: end;
+  align-items: center;
+  /* border: 2px solid red; */
+  width: 75px;
+  display: grid;
+  grid-template-columns: 0.5fr 1fr;
+}
+
+.edit {
+  justify-self: end;
+  align-items: center;
+  /* border: 2px solid red; */
+  /* width: 70px; */
+  display: grid;
+  grid-template-columns: 0.7fr 1fr;
+}
+
+.reply-text,
+.edit-text {
+  color: hsl(238, 40%, 52%);
+  font-weight: 600;
+  text-align: right;
+  cursor: pointer;
+  /* align-self: end; */
+}
+
+.reply:hover .reply-text {
+  color: hsl(239, 57%, 85%);
+}
+
+.edit:hover .edit-text {
+  color: hsl(239, 57%, 85%);
+}
+
+.reply-icon,
+.edit-icon {
+  /* position: absolute;
+  top: 1.6vh;
+  right: 3.3vw; */
+  cursor: pointer;
+}
+
+.reply-icon {
+  justify-self: end;
+}
+
+.reply:hover .reply-icon {
+  opacity: 0.3;
+}
+
+.edit:hover .edit-icon {
+  opacity: 0.3;
+}
+
+.text {
+  /* border: 2px solid red; */
+  line-height: 3vh;
+  margin-top: 2vh;
+  width: 100%;
+  color: hsl(211, 10%, 45%);
+  font-weight: 600;
+}
+
+.text:before {
+  content: attr(data-before);
+  color: hsl(238, 40%, 52%);
+}
+
+.del-button {
+  cursor: pointer;
+}
+
+.del-button:hover {
+  opacity: 0.6;
+}
+
+.add-comment,
+.phantom-reply {
+  grid-template-columns: 1fr 4fr 1fr;
+  align-items: center;
+  justify-content: center;
+}
+
+.add-comment {
+  position: fixed;
+  width: 45vw;
+  padding: 1vh 1vw;
+  margin: 0 0;
+  bottom: 0vh;
+  left: 27.5vw;
+  z-index: 1;
+  border: 2px solid hsl(214, 8%, 83%);
+}
+
+.add-comment .input-box {
+  max-height: 6vh;
+}
+
+.add-comment *,
+.phantom-reply * {
+  justify-self: center;
+}
+
+.input-box {
+  resize: none;
+  padding: 1.5vh 0.8vw;
+  height: 15vh;
+  width: 100%;
+  border-radius: 10px;
+  border: 2px solid hsl(223, 19%, 93%);
+  font-family: "Rubik", sans-serif;
+  overflow-wrap: break-word;
+  font-size: 1rem;
+  color: hsl(211, 10%, 45%);
+  font-weight: 700;
+}
+
+.input-box::placeholder {
+  text-align: left;
+  font-size: 1rem;
+  font-weight: 700;
+  margin: 0 0;
+  padding: 0 0;
+}
+
+.input-box:focus {
+  outline: none;
+  border: 2px solid hsl(238, 40%, 52%);
+}
+
+.send-btn,
+.phantom-reply-btn,
+.phantom-update-btn {
+  text-align: center;
+  line-height: 6.5vh;
+  height: 6.5vh;
+  width: 5vw;
+  border-radius: 10px;
+  background-color: hsl(238, 40%, 52%);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.send-btn:hover,
+.phantom-reply-btn:hover,
+.phantom-cancel-btn:hover,
+.phantom-update-btn:hover {
+  opacity: 0.4;
+}
+
+.phantom-reply-btn-div {
+  display: grid;
+  grid-template-rows: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+.phantom-cancel-btn {
+  text-align: center;
+  line-height: 6.5vh;
+  height: 6.5vh;
+  width: 5vw;
+  border-radius: 10px;
+  background-color: hsl(358, 79%, 66%);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@keyframes existence {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.alert-box {
+  position: fixed;
+  height: 35vh;
+  width: 20vw;
+  left: 40vw;
+  top: 30vh;
+  background-color: white;
+  border-radius: 10px;
+  padding: 3vh 2vw;
+  display: grid;
+  grid-template-rows: 0.7fr 1fr 1fr;
+}
+
+.alert-header {
+  font-size: 1.4rem;
+  color: hsl(212, 24%, 26%);
+  font-weight: 700;
+  align-self: center;
+}
+
+.alert-text {
+  color: hsl(0, 0%, 34%);
+  align-self: center;
+}
+
+.alert-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-cancel-btn {
+  text-align: center;
+  background-color: rgb(105, 105, 105);
+  width: 7vw;
+  height: 7vh;
+  line-height: 7vh;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  color: white;
+  font-weight: 500;
+  justify-self: center;
+  cursor: pointer;
+}
+
+.alert-delete-btn {
+  justify-self: center;
+  text-align: center;
+  background-color: hsl(358, 79%, 66%);
+  width: 7vw;
+  height: 7vh;
+  line-height: 7vh;
+  font-size: 1.3rem;
+  border-radius: 10px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.alert-cancel-btn:hover,
+.alert-delete-btn:hover {
+  opacity: 0.5;
+}
+
+.inactive {
+  display: none;
+}
+
+.reply-box {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.line {
+  height: 95%;
+  width: 2px;
+  background-color: rgb(207, 207, 207);
+  justify-self: center;
+  border-radius: 10px;
+}
